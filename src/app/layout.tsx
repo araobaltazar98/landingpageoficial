@@ -13,10 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Arão Baltazar — Consultoria Estratégica para Cirurgia Plástica & Estética",
+  title: "Arão Baltazar — Consultoria Estratégica para Cirurgia Plástica",
   description:
-    "Consultoria estratégica para médicos e donos de clínica de cirurgia plástica e estética de alto ticket. Tráfego pago, tracking e CAC por procedimento — dentro das regras do CFM.",
+    "Consultoria estratégica para médicos e donos de clínica de cirurgia plástica de alto ticket. Tráfego pago, tracking e CAC por procedimento — dentro das regras do CFM.",
 };
 
 export default function RootLayout({
