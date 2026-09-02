@@ -83,7 +83,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-balance text-4xl font-medium tracking-tight text-foreground sm:text-6xl lg:text-7xl"
         >
-          Transformo investimento em tráfego pago em{" "}
+          Consultoria estratégica para transformar sua clínica em{" "}
           <span className="text-accent">agenda cirúrgica cheia</span>
           <span className="text-muted-foreground">
             {" "}
@@ -97,9 +97,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-2xl text-balance text-lg text-muted-foreground sm:text-xl"
         >
-          Se sua clínica já investe em mídia paga e você não sabe exatamente
-          quanto custa cada paciente que realmente opera — ou vive travado
-          pelas regras de publicidade médica — eu resolvo isso.
+          Se você é médico ou dono de clínica e sente que sua operação de
+          aquisição de pacientes depende de achismo, de agência que não te
+          explica nada, ou trava toda vez que esbarra nas regras do CFM — eu
+          oriento você a resolver isso.
         </motion.p>
 
         <motion.div
@@ -118,7 +119,7 @@ export default function Hero() {
               <span className="transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110">
                 <WhatsappIcon size={16} />
               </span>
-              Solicitar Diagnóstico da sua Conta
+              Agendar Consultoria Estratégica
             </LeadFormButton>
           </span>
         </motion.div>

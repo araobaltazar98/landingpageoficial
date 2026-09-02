@@ -1,11 +1,11 @@
 export const profile = {
   name: "Arão Baltazar",
-  role: "Especialista em Aquisição para Cirurgia Plástica & Estética",
+  role: "Consultor Estratégico para Cirurgia Plástica & Estética",
   bio: {
     paragraphs: [
-      "Há mais de 7 anos atuo com tráfego pago — mas nos últimos anos me especializei em um problema específico: como transformar investimento em mídia em agenda cirúrgica cheia, dentro de um setor onde a maioria das agências não entende nem de compliance médico, nem da jornada de decisão de um paciente de alto ticket.",
+      "Há mais de 7 anos atuo com tráfego pago — mas nos últimos anos me especializei em um problema específico: orientar médicos e donos de clínica a transformar investimento em mídia em agenda cirúrgica cheia, dentro de um setor onde a maioria das agências não entende nem de compliance médico, nem da jornada de decisão de um paciente de alto ticket.",
       "Gerenciei operações de mídia paga expressivas no setor de estética e cirurgia plástica e percebi cedo que o problema nunca era só a campanha. Era a ausência de uma metodologia que conectasse tracking, CAC real por procedimento e regras de publicidade médica em um único sistema.",
-      "Foi isso que me levou a desenvolver o Protocolo Agenda Cirúrgica: uma metodologia que une aquisição paga, mensuração de dados e compliance CFM para transformar investimento em mídia em previsibilidade de agenda — não em achismo.",
+      "Foi isso que me levou a desenvolver o Protocolo Agenda Cirúrgica: a metodologia que uso hoje na consultoria estratégica que presto a médicos e donos de clínica, unindo aquisição paga, mensuração de dados e compliance CFM para transformar investimento em mídia em previsibilidade de agenda — não em achismo.",
     ],
   },
   photo: "/images/profile.jpg", // Atualize o caminho conforme sua foto
@@ -30,7 +30,7 @@ export const problem = {
   resultLine:
     "O custo por paciente sobe, a margem desaparece — e a clínica continua sem saber por quê.",
   bridgeLine:
-    "Foi resolvendo exatamente isso — em operações de alto investimento no setor de estética e cirurgia — que desenvolvi o Protocolo Agenda Cirúrgica: uma metodologia específica para transformar tráfego pago em cadeira de cirurgia ocupada, respeitando as regras de publicidade médica.",
+    "Foi resolvendo exatamente isso — em operações de alto investimento no setor de estética e cirurgia — que desenvolvi o Protocolo Agenda Cirúrgica: a metodologia que aplico na consultoria estratégica que presto a médicos e donos de clínica, para transformar tráfego pago em cadeira de cirurgia ocupada, respeitando as regras de publicidade médica.",
 };
 
 export const audience = {
@@ -39,7 +39,7 @@ export const audience = {
   fitFor: [
     "Clínicas de estética e cirurgia plástica que já investem em tráfego pago e querem CAC real por procedimento, não só por lead",
     "Clínicas de alto ticket que precisam anunciar dentro das regras do CFM sem perder performance",
-    "Donos de clínica que querem sair do achismo e operar com dado, estrutura e processo",
+    "Médicos e donos de clínica que querem sair do achismo e operar com dado, estrutura e processo",
   ],
   notFor: [
     "Quem busca resultado da noite pro dia, sem investimento consistente",

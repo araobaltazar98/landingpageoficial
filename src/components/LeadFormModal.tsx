@@ -32,7 +32,7 @@ export default function LeadFormModal() {
     e.preventDefault();
 
     const message = [
-      "Olá, gostaria de solicitar o Diagnóstico da minha conta de anúncios.",
+      "Olá, gostaria de agendar uma consultoria estratégica para minha clínica.",
       `Nome: ${form.nome}`,
       `WhatsApp: ${form.whatsapp}`,
       `Empresa: ${form.empresa}`,

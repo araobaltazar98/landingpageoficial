@@ -23,9 +23,10 @@ export default function Contact() {
               <span className="text-accent">deixando dinheiro na mesa</span>?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-balance text-muted-foreground">
-              Faço um Diagnóstico completo da sua conta de anúncios: CAC real
-              por procedimento, riscos de compliance CFM e plano de ação
-              priorizado — entregue em até 5 dias úteis.
+              Faço uma consultoria estratégica para médicos e donos de
+              clínica: começamos com um Diagnóstico completo da sua conta de
+              anúncios — CAC real por procedimento, riscos de compliance CFM
+              — e saímos com um plano de ação priorizado.
             </p>
 
             <div className="mt-10 flex justify-center">
@@ -39,7 +40,7 @@ export default function Contact() {
                   <span className="transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110">
                     <WhatsappIcon size={16} />
                   </span>
-                  Solicitar Diagnóstico da Minha Conta
+                  Agendar Consultoria Estratégica
                 </LeadFormButton>
               </span>
             </div>
