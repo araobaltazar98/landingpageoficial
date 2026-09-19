@@ -1,18 +1,47 @@
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import NeonCard from "@/components/NeonCard";
+import AnimatedStat from "@/components/AnimatedStat";
 import Badge from "@/components/Badge";
-import { projects } from "@/data/content";
+import { projects, proof, stats, experienceHighlights } from "@/data/content";
 
 export default function Projects() {
   return (
-    <section id="resultados" className="px-6 py-28 lg:px-8">
+    <section id="prova" className="px-6 py-28 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <Badge>Resultados</Badge>
+          <Badge>{proof.kicker}</Badge>
           <h2 className="mt-4 text-balance text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            Resultados que já entreguei
+            {proof.heading}
           </h2>
         </Reveal>
+
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={0.05 + i * 0.06}>
+              <NeonCard className="p-8 text-center sm:p-10" glowColor="blue">
+                <div className="text-4xl font-medium tracking-tight text-accent sm:text-5xl mb-3">
+                  <AnimatedStat value={stat.value} />
+                </div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  {stat.label}
+                </div>
+              </NeonCard>
+            </Reveal>
+          ))}
+          {experienceHighlights.map((text, i) => (
+            <Reveal key={text} delay={0.11 + i * 0.06}>
+              <NeonCard
+                className="flex h-full flex-col items-center justify-center p-8 text-center sm:p-10"
+                glowColor="blue"
+              >
+                <p className="text-sm leading-relaxed text-foreground">
+                  {text}
+                </p>
+              </NeonCard>
+            </Reveal>
+          ))}
+        </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((project, i) => {

@@ -13,7 +13,13 @@ export default function Problem() {
           </h2>
         </Reveal>
 
-        <ul className="mt-10 max-w-2xl space-y-4">
+        <Reveal delay={0.06}>
+          <p className="mt-6 max-w-2xl text-balance leading-relaxed text-muted-foreground">
+            {problem.intro}
+          </p>
+        </Reveal>
+
+        <ul className="mt-6 max-w-2xl space-y-4">
           {problem.bullets.map((bullet, i) => (
             <Reveal key={bullet} delay={0.06 + i * 0.06}>
               <li className="flex items-start gap-3 text-balance text-muted-foreground sm:text-lg">

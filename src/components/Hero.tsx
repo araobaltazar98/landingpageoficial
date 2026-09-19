@@ -9,7 +9,7 @@ import {
   YoutubeIcon,
   TaboolaIcon,
 } from "@/components/icons";
-import { profile } from "@/data/content";
+import { hero } from "@/data/content";
 import LeadFormButton from "@/components/LeadFormButton";
 import Badge from "@/components/Badge";
 
@@ -72,9 +72,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6"
         >
-          <Badge>
-            {profile.name} &middot; {profile.role}
-          </Badge>
+          <Badge>{hero.eyebrow}</Badge>
         </motion.div>
 
         <motion.h1
@@ -83,12 +81,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-balance text-4xl font-medium tracking-tight text-foreground sm:text-6xl lg:text-7xl"
         >
-          Consultoria estratégica para transformar sua clínica em{" "}
-          <span className="text-accent">agenda cirúrgica cheia</span>
-          <span className="text-muted-foreground">
-            {" "}
-            — dentro das regras do CFM, sem depender de indicação.
-          </span>
+          {hero.title}
         </motion.h1>
 
         <motion.p
@@ -97,10 +90,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-2xl text-balance text-lg text-muted-foreground sm:text-xl"
         >
-          Se você é médico ou dono de clínica e sente que sua operação de
-          aquisição de pacientes depende de achismo, de agência que não te
-          explica nada, ou trava toda vez que esbarra nas regras do CFM — eu
-          oriento você a resolver isso.
+          {hero.subtitle}
         </motion.p>
 
         <motion.div
@@ -115,14 +105,34 @@ export default function Hero() {
               className="absolute -inset-1 animate-ping rounded-full bg-accent/40"
               style={{ animationDuration: "2.2s" }}
             />
-            <LeadFormButton className="group relative inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all duration-300 hover:scale-[1.06] hover:shadow-lg hover:shadow-accent/40">
+            <LeadFormButton
+              location="hero"
+              className="group relative inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all duration-300 hover:scale-[1.06] hover:shadow-lg hover:shadow-accent/40"
+            >
               <span className="transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110">
                 <WhatsappIcon size={16} />
               </span>
-              Agendar Consultoria Estratégica
+              {hero.ctaLabel}
             </LeadFormButton>
           </span>
+          <p className="mt-4 max-w-md text-balance text-sm text-muted-foreground">
+            {hero.ctaMicrocopy}
+          </p>
         </motion.div>
+
+        <motion.ul
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 flex flex-col gap-x-6 gap-y-2 text-xs text-muted-foreground sm:flex-row sm:flex-wrap"
+        >
+          {hero.credibilityBar.map((item) => (
+            <li key={item} className="flex items-center gap-2">
+              <span className="h-1 w-1 shrink-0 rounded-full bg-accent" />
+              {item}
+            </li>
+          ))}
+        </motion.ul>
       </div>
     </section>
   );

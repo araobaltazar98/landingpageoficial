@@ -6,10 +6,10 @@ import { contact } from "@/data/content";
 import LeadFormButton from "@/components/LeadFormButton";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
+  { href: "#metodo", label: "Método" },
+  { href: "#oferta", label: "A oferta" },
   { href: "#para-quem", label: "Pra quem é" },
-  { href: "#resultados", label: "Resultados" },
-  { href: "#skills", label: "Skills" },
+  { href: "#faq", label: "Perguntas frequentes" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -70,7 +70,10 @@ export default function Navbar() {
           >
             <InstagramIcon size={18} />
           </a>
-          <LeadFormButton className="hidden rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex">
+          <LeadFormButton
+            location="navbar"
+            className="hidden rounded-full bg-foreground px-4 py-2 text-xs font-medium text-background transition-transform hover:scale-[1.03] sm:inline-flex"
+          >
             Fale comigo
           </LeadFormButton>
         </div>

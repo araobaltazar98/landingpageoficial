@@ -2,9 +2,8 @@ import Reveal from "@/components/Reveal";
 import NeonCard from "@/components/NeonCard";
 import NeonImage from "@/components/NeonImage";
 import Badge from "@/components/Badge";
-import AnimatedStat from "@/components/AnimatedStat";
 import LeadFormButton from "@/components/LeadFormButton";
-import { profile, stats } from "@/data/content";
+import { profile, offer } from "@/data/content";
 
 export default function About() {
   return (
@@ -39,7 +38,7 @@ export default function About() {
 
               {/* Título */}
               <h3 className="text-xl font-medium text-foreground sm:text-2xl mb-4">
-                Minha Trajetória
+                {profile.bio.title}
               </h3>
 
               {/* Bio com melhor tipografia */}
@@ -58,8 +57,11 @@ export default function About() {
               <div className="my-6 h-px bg-gradient-to-r from-accent/20 via-accent/50 to-transparent" />
 
               {/* Call-to-action */}
-              <LeadFormButton className="group/cta flex items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-accent/80">
-                <span>Conheça o Protocolo Agenda Cirúrgica</span>
+              <LeadFormButton
+                location="about"
+                className="group/cta flex items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-accent/80"
+              >
+                <span>{offer.ctaLabel}</span>
                 <svg
                   className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1"
                   fill="none"
@@ -76,29 +78,6 @@ export default function About() {
               </LeadFormButton>
             </NeonCard>
           </Reveal>
-        </div>
-
-        {/* Stats com layout melhorado */}
-        <div className="mt-20 border-t border-border pt-16">
-          <Reveal delay={0.15}>
-            <Badge>Números que Falam</Badge>
-          </Reveal>
-
-          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            {stats.map((stat, i) => (
-              <Reveal key={stat.label} delay={0.2 + i * 0.08}>
-                {/* Card neon para cada stat */}
-                <NeonCard className="p-8 text-center sm:p-10" glowColor="blue">
-                  <div className="text-4xl font-medium tracking-tight text-accent sm:text-5xl mb-3">
-                    <AnimatedStat value={stat.value} />
-                  </div>
-                  <div className="text-sm text-muted-foreground font-medium">
-                    {stat.label}
-                  </div>
-                </NeonCard>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
     </section>

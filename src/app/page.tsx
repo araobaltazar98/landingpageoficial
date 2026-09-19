@@ -1,10 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
-import About from "@/components/About";
+import Reframe from "@/components/Reframe";
+import Method from "@/components/Method";
+import Offer from "@/components/Offer";
+import Transformation from "@/components/Transformation";
 import Audience from "@/components/Audience";
 import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
+import About from "@/components/About";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { LeadFormProvider } from "@/components/LeadFormContext";
@@ -19,10 +23,14 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Problem />
-        <About />
+        <Reframe />
+        <Method />
+        <Offer />
+        <Transformation />
         <Audience />
         <Projects />
-        <Skills />
+        <About />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
