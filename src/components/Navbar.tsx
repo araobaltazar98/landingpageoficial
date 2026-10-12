@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { LinkedinIcon, InstagramIcon } from "@/components/icons";
 import { contact } from "@/data/content";
 import LeadFormButton from "@/components/LeadFormButton";
@@ -30,11 +31,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-        <a
-          href="#top"
-          className="font-serif text-lg font-medium tracking-tight text-ink"
-        >
-          Arão Baltazar
+        <a href="#top" aria-label="Arão Baltazar — início" className="shrink-0">
+          <Image
+            src="/brand/arao-baltazar-logo-nome.svg"
+            alt="Arão Baltazar"
+            width={741}
+            height={145}
+            priority
+            className="h-7 w-auto sm:h-8"
+          />
         </a>
 
         <div className="hidden items-center gap-8 lg:flex">
