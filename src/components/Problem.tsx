@@ -1,47 +1,46 @@
 import Reveal from "@/components/Reveal";
-import Badge from "@/components/Badge";
 import { problem } from "@/data/content";
+import {
+  bodyClass,
+  containerClass,
+  headingClass,
+  sectionClass,
+} from "@/components/styles";
 
 export default function Problem() {
   return (
-    <section id="problema" className="px-6 py-28 lg:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section id="problema" className={sectionClass}>
+      <div className={containerClass}>
         <Reveal>
-          <Badge>{problem.kicker}</Badge>
-          <h2 className="mt-4 max-w-2xl text-balance text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            {problem.heading}
-          </h2>
+          <h2 className={headingClass}>{problem.heading}</h2>
         </Reveal>
 
-        <Reveal delay={0.06}>
-          <p className="mt-6 max-w-2xl text-balance leading-relaxed text-muted-foreground">
-            {problem.intro}
-          </p>
-        </Reveal>
+        <div className="mt-8 max-w-2xl space-y-6">
+          <Reveal delay={0.06}>
+            <p className={bodyClass}>{problem.intro}</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className={bodyClass}>{problem.bridge}</p>
+          </Reveal>
+        </div>
 
-        <ul className="mt-6 max-w-2xl space-y-4">
+        <ul className="mt-8 max-w-2xl divide-y divide-line border-y border-line">
           {problem.bullets.map((bullet, i) => (
-            <Reveal key={bullet} delay={0.06 + i * 0.06}>
-              <li className="flex items-start gap-3 text-balance text-muted-foreground sm:text-lg">
-                <span className="relative mt-2.5 flex h-1.5 w-1.5 shrink-0">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                </span>
+            <Reveal key={bullet} delay={0.12 + i * 0.05}>
+              <li className="flex items-start gap-4 py-4 text-ink sm:text-lg">
+                <span
+                  aria-hidden
+                  className="mt-[0.7em] h-px w-4 shrink-0 bg-graphite"
+                />
                 {bullet}
               </li>
             </Reveal>
           ))}
         </ul>
 
-        <Reveal delay={0.3}>
-          <p className="mt-8 max-w-2xl text-balance text-xl font-medium tracking-tight text-foreground">
-            {problem.resultLine}
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.36}>
-          <p className="mt-6 max-w-2xl text-balance leading-relaxed text-muted-foreground">
-            {problem.bridgeLine}
+        <Reveal delay={0.35}>
+          <p className="mt-8 max-w-2xl text-balance font-serif text-2xl font-medium tracking-tight text-ink">
+            {problem.closing}
           </p>
         </Reveal>
       </div>

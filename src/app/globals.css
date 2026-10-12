@@ -1,42 +1,45 @@
 @import "tailwindcss";
 
+/*
+ * Paleta A · Relatório — papel claro, tinta escura e um único laranja de sinal.
+ * Todos os pares de texto passam no WCAG AA (mínimo 4,5:1).
+ */
 :root {
-  --background: #050505;
-  --foreground: #f5f5f5;
-  --muted: #8a8a93;
-  --muted-foreground: #a1a1aa;
-  --border: #1f1f23;
-  --surface: #0c0c0e;
-  --accent: #3b82f6;
-  --accent-foreground: #eff6ff;
+  --paper: #f6f4ef; /* Fundo principal da página */
+  --ink: #111827; /* Títulos, texto principal, faixas de contraste — 16:1 sobre o papel */
+  --graphite: #4b5563; /* Texto de apoio, logos dos clientes — 6,9:1 sobre o papel */
+  --line: #e2ded5; /* Divisórias, bordas de cards e de campos */
+  --signal: #c2410c; /* Botões, rótulo do hero, números de destaque — 5,2:1 com texto branco */
+  --signal-hover: #9a3412;
+  --signal-light: #ff6b3d; /* Destaques sobre fundo Tinta — 6,3:1 sobre a tinta */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-surface: var(--surface);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-signal-hover: var(--signal-hover);
+  --color-signal-light: var(--signal-light);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .text-balance {

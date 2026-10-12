@@ -5,28 +5,58 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import { useLeadForm } from "@/components/LeadFormContext";
 import { WhatsappIcon } from "@/components/icons";
-import { contact, investmentRanges } from "@/data/content";
+import {
+  contact,
+  investmentRanges,
+  leadForm,
+  specialties,
+} from "@/data/content";
 import { pushEvent, pushThankYouPageview, restoreHomePath } from "@/lib/gtm";
+import { buttonPrimary, buttonSecondary } from "@/components/styles";
 
 const initialState = {
   nome: "",
-  whatsapp: "",
   clinica: "",
-  cidadeEstado: "",
-  procedimento: "",
+  especialidade: "",
+  cidade: "",
+  whatsapp: "",
   investimento: "",
-  gargalo: "",
   consentimento: false,
 };
+
+type Field = keyof Omit<typeof initialState, "consentimento">;
+
+const textFields: {
+  id: Field;
+  label: string;
+  type: string;
+  placeholder: string;
+  autoComplete?: string;
+}[] = [
+  { id: "nome", label: "Nome", type: "text", placeholder: "Seu nome", autoComplete: "name" },
+  { id: "clinica", label: "Clínica", type: "text", placeholder: "Nome da clínica", autoComplete: "organization" },
+];
+
+const textFieldsAfterSpecialty: typeof textFields = [
+  { id: "cidade", label: "Cidade", type: "text", placeholder: "São Paulo, SP", autoComplete: "address-level2" },
+  { id: "whatsapp", label: "WhatsApp", type: "tel", placeholder: "(11) 99999-9999", autoComplete: "tel" },
+];
+
+const inputClass =
+  "w-full rounded-md border border-line bg-paper px-4 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-graphite/70 focus:border-ink";
+
+const labelClass = "mb-1.5 block text-xs font-medium text-graphite";
+
+type Result = { qualified: boolean; whatsappUrl: string };
 
 export default function LeadFormModal() {
   const { isOpen, origin, close } = useLeadForm();
   const [form, setForm] = useState(initialState);
-  const [submitted, setSubmitted] = useState(false);
+  const [result, setResult] = useState<Result | null>(null);
 
   function handleClose() {
     restoreHomePath();
-    setSubmitted(false);
+    setResult(null);
     setForm(initialState);
     close();
   }
@@ -50,31 +80,49 @@ export default function LeadFormModal() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
+    const qualified =
+      investmentRanges.find((range) => range.label === form.investimento)
+        ?.qualified ?? true;
+
     const message = [
-      "Olá, gostaria de solicitar um diagnóstico estratégico para minha clínica.",
+      qualified
+        ? "Olá, gostaria de agendar um diagnóstico do funil da minha clínica."
+        : "Olá, tenho interesse em materiais para estruturar a captação da minha clínica.",
       `Nome: ${form.nome}`,
-      `WhatsApp: ${form.whatsapp}`,
       `Clínica: ${form.clinica}`,
-      `Cidade e estado: ${form.cidadeEstado}`,
-      `Principal procedimento: ${form.procedimento}`,
+      `Especialidade: ${form.especialidade}`,
+      `Cidade: ${form.cidade}`,
+      `WhatsApp: ${form.whatsapp}`,
       `Investimento mensal em mídia: ${form.investimento}`,
-      `Principal gargalo atual: ${form.gargalo}`,
     ].join("\n");
 
-    pushEvent({
-      event: "generate_lead",
+    const trackingPayload = {
       form_location: origin ?? "unknown",
       lead_channel: "whatsapp",
       form_id: "qualified_lead_form",
       investment_range: form.investimento,
-    });
-    pushThankYouPageview({ form_location: origin ?? "unknown" });
+      specialty: form.especialidade,
+      lead_qualified: qualified,
+    };
 
-    const url = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    // Só leads qualificados contam como conversão (generate_lead + /obrigado),
+    // para a mídia otimizar para quem pode virar paciente.
+    if (qualified) {
+      pushEvent({ event: "generate_lead", ...trackingPayload });
+      pushThankYouPageview({ form_location: origin ?? "unknown" });
+    } else {
+      pushEvent({ event: "lead_unqualified", ...trackingPayload });
+    }
 
-    setSubmitted(true);
+    const whatsappUrl = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    setResult({ qualified, whatsappUrl });
   }
+
+  const confirmation = result
+    ? leadForm.confirmation[result.qualified ? "qualified" : "unqualified"]
+    : null;
 
   return (
     <AnimatePresence>
@@ -85,7 +133,7 @@ export default function LeadFormModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-ink/60"
             onClick={handleClose}
             aria-hidden="true"
           />
@@ -94,173 +142,106 @@ export default function LeadFormModal() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="lead-form-title"
-            initial={{ opacity: 0, y: 16, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.98 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-2xl border border-border bg-surface p-8"
+            className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-lg border border-line bg-paper p-8"
           >
             <button
               type="button"
               onClick={handleClose}
               aria-label="Fechar"
-              className="absolute right-5 top-5 text-muted-foreground transition-colors hover:text-foreground"
+              className="absolute right-5 top-5 text-graphite transition-colors hover:text-ink"
             >
               <X size={20} />
             </button>
 
-            {submitted ? (
+            {result && confirmation ? (
               <div className="py-4 text-center">
-                <motion.div
-                  initial={{ scale: 0.6, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent/15 text-accent"
-                >
-                  <Check size={28} strokeWidth={2.5} />
-                </motion.div>
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-line text-ink">
+                  <Check size={24} strokeWidth={2.25} />
+                </div>
                 <h2
                   id="lead-form-title"
-                  className="mt-6 text-xl font-medium tracking-tight text-foreground"
+                  className="mt-6 font-serif text-2xl font-medium tracking-tight text-ink"
                 >
-                  Solicitação enviada!
+                  {confirmation.title}
                 </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Recebi sua solicitação. Vou analisar as informações e, se
-                  houver aderência, entrarei em contato pelo WhatsApp para
-                  explicar os próximos passos. Abri o WhatsApp para a gente
-                  continuar por lá — se não abriu, é só clicar no botão
-                  abaixo.
+                <p className="mt-3 leading-relaxed text-graphite">
+                  {confirmation.text}
+                </p>
+                <p className="mt-6 text-xs leading-relaxed text-graphite">
+                  {leadForm.confirmation.whatsappHint}
                 </p>
                 <a
-                  href={`https://wa.me/${contact.whatsappNumber}`}
+                  href={result.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.02]"
+                  className={`mt-4 w-full ${buttonSecondary} py-3`}
                 >
                   <WhatsappIcon size={16} />
-                  Abrir o WhatsApp
+                  Enviar pelo WhatsApp
                 </a>
               </div>
             ) : (
               <>
                 <h2
                   id="lead-form-title"
-                  className="text-xl font-medium tracking-tight text-foreground"
+                  className="pr-8 font-serif text-2xl font-medium tracking-tight text-ink"
                 >
-                  Solicitar diagnóstico estratégico
+                  {leadForm.title}
                 </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Preencha os dados abaixo para eu analisar a aderência da
-                  sua clínica. A solicitação não representa contratação
-                  automática.
+                <p className="mt-2 text-sm leading-relaxed text-graphite">
+                  {leadForm.intro}
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                  <div>
-                    <label
-                      htmlFor="nome"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      Nome
-                    </label>
-                    <input
-                      id="nome"
-                      type="text"
-                      required
-                      value={form.nome}
-                      onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
-                      placeholder="Seu nome"
+                  {textFields.map((field) => (
+                    <TextField
+                      key={field.id}
+                      {...field}
+                      value={form[field.id]}
+                      onChange={(value) => setForm({ ...form, [field.id]: value })}
                     />
-                  </div>
+                  ))}
 
                   <div>
-                    <label
-                      htmlFor="whatsapp"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      WhatsApp
+                    <label htmlFor="especialidade" className={labelClass}>
+                      Especialidade
                     </label>
-                    <input
-                      id="whatsapp"
-                      type="tel"
+                    <select
+                      id="especialidade"
                       required
-                      value={form.whatsapp}
+                      value={form.especialidade}
                       onChange={(e) =>
-                        setForm({ ...form, whatsapp: e.target.value })
+                        setForm({ ...form, especialidade: e.target.value })
                       }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
-                      placeholder="(11) 99999-9999"
-                    />
+                      className={inputClass}
+                    >
+                      <option value="" disabled>
+                        Selecione a especialidade
+                      </option>
+                      {specialties.map((specialty) => (
+                        <option key={specialty} value={specialty}>
+                          {specialty}
+                        </option>
+                      ))}
+                    </select>
                   </div>
 
-                  <div>
-                    <label
-                      htmlFor="clinica"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      Nome da clínica
-                    </label>
-                    <input
-                      id="clinica"
-                      type="text"
-                      required
-                      value={form.clinica}
-                      onChange={(e) =>
-                        setForm({ ...form, clinica: e.target.value })
-                      }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
-                      placeholder="Sua clínica"
+                  {textFieldsAfterSpecialty.map((field) => (
+                    <TextField
+                      key={field.id}
+                      {...field}
+                      value={form[field.id]}
+                      onChange={(value) => setForm({ ...form, [field.id]: value })}
                     />
-                  </div>
+                  ))}
 
                   <div>
-                    <label
-                      htmlFor="cidadeEstado"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      Cidade e estado
-                    </label>
-                    <input
-                      id="cidadeEstado"
-                      type="text"
-                      required
-                      value={form.cidadeEstado}
-                      onChange={(e) =>
-                        setForm({ ...form, cidadeEstado: e.target.value })
-                      }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
-                      placeholder="São Paulo, SP"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="procedimento"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      Principal procedimento da clínica
-                    </label>
-                    <input
-                      id="procedimento"
-                      type="text"
-                      required
-                      value={form.procedimento}
-                      onChange={(e) =>
-                        setForm({ ...form, procedimento: e.target.value })
-                      }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
-                      placeholder="Ex: mamoplastia, lipoaspiração..."
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="investimento"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      Faixa de investimento mensal em mídia
+                    <label htmlFor="investimento" className={labelClass}>
+                      Investimento mensal em mídia
                     </label>
                     <select
                       id="investimento"
@@ -269,40 +250,20 @@ export default function LeadFormModal() {
                       onChange={(e) =>
                         setForm({ ...form, investimento: e.target.value })
                       }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
+                      className={inputClass}
                     >
                       <option value="" disabled>
                         Selecione uma faixa
                       </option>
                       {investmentRanges.map((range) => (
-                        <option key={range} value={range}>
-                          {range}
+                        <option key={range.label} value={range.label}>
+                          {range.label}
                         </option>
                       ))}
                     </select>
                   </div>
 
-                  <div>
-                    <label
-                      htmlFor="gargalo"
-                      className="mb-1.5 block text-xs font-medium text-muted-foreground"
-                    >
-                      Principal gargalo atual
-                    </label>
-                    <input
-                      id="gargalo"
-                      type="text"
-                      required
-                      value={form.gargalo}
-                      onChange={(e) =>
-                        setForm({ ...form, gargalo: e.target.value })
-                      }
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent"
-                      placeholder="Ex: não sei o CAC por procedimento"
-                    />
-                  </div>
-
-                  <label className="flex items-start gap-2.5 text-xs leading-relaxed text-muted-foreground">
+                  <label className="flex items-start gap-2.5 text-xs leading-relaxed text-graphite">
                     <input
                       type="checkbox"
                       required
@@ -310,19 +271,17 @@ export default function LeadFormModal() {
                       onChange={(e) =>
                         setForm({ ...form, consentimento: e.target.checked })
                       }
-                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-border accent-accent"
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-line accent-ink"
                     />
-                    Autorizo o uso dos meus dados para analisar esta
-                    solicitação e para contato sobre esta consultoria.
+                    {leadForm.consent}
                   </label>
 
-                  <button
-                    type="submit"
-                    className="mt-2 flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-transform hover:scale-[1.02]"
-                  >
-                    <WhatsappIcon size={16} />
-                    Enviar para análise
+                  <button type="submit" className={`mt-2 w-full ${buttonPrimary}`}>
+                    {leadForm.submitLabel}
                   </button>
+                  <p className="text-center text-xs text-graphite">
+                    {leadForm.responseNote}
+                  </p>
                 </form>
               </>
             )}
@@ -330,5 +289,41 @@ export default function LeadFormModal() {
         </div>
       )}
     </AnimatePresence>
+  );
+}
+
+function TextField({
+  id,
+  label,
+  type,
+  placeholder,
+  autoComplete,
+  value,
+  onChange,
+}: {
+  id: string;
+  label: string;
+  type: string;
+  placeholder: string;
+  autoComplete?: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className={labelClass}>
+        {label}
+      </label>
+      <input
+        id={id}
+        type={type}
+        required
+        autoComplete={autoComplete}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={inputClass}
+        placeholder={placeholder}
+      />
+    </div>
   );
 }

@@ -1,35 +1,32 @@
 import Reveal from "@/components/Reveal";
-import Badge from "@/components/Badge";
-import { method } from "@/data/content";
+import { layers } from "@/data/content";
+import { containerClass, headingClass, sectionClass } from "@/components/styles";
 
 export default function Method() {
   return (
-    <section id="metodo" className="px-6 py-28 lg:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section id="sistema" className={`${sectionClass} pt-0 lg:pt-0`}>
+      <div className={`${containerClass} border-t border-line pt-24 lg:pt-28`}>
         <Reveal>
-          <Badge>{method.kicker}</Badge>
-          <h2 className="mt-4 max-w-2xl text-balance text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            {method.heading}
-          </h2>
+          <h2 className={headingClass}>{layers.heading}</h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {method.steps.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.08}>
-              <div className="group h-full rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10">
-                <span className="text-xs font-medium tracking-wide text-accent">
-                  Etapa {i + 1}
+        <ol className="mt-12 border-t border-line">
+          {layers.items.map((layer, i) => (
+            <Reveal key={layer.title} delay={i * 0.06}>
+              <li className="grid grid-cols-[3rem_1fr] gap-x-4 border-b border-line py-8 sm:grid-cols-[5rem_16rem_1fr] sm:gap-x-8">
+                <span className="font-sans text-2xl font-semibold text-signal tabular-nums sm:text-3xl">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-2 text-lg font-medium tracking-tight text-foreground">
-                  {step.title}
+                <h3 className="font-serif text-xl font-medium tracking-tight text-ink sm:text-2xl">
+                  {layer.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {step.description}
+                <p className="col-start-2 mt-2 leading-relaxed text-graphite sm:col-start-3 sm:mt-0 sm:text-lg">
+                  {layer.description}
                 </p>
-              </div>
+              </li>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

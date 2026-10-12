@@ -1,83 +1,42 @@
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import NeonCard from "@/components/NeonCard";
-import NeonImage from "@/components/NeonImage";
-import Badge from "@/components/Badge";
-import LeadFormButton from "@/components/LeadFormButton";
-import { profile, offer } from "@/data/content";
+import { about, profile } from "@/data/content";
+import {
+  bodyClass,
+  containerClass,
+  headingClass,
+  sectionClass,
+} from "@/components/styles";
 
 export default function About() {
   return (
-    <section id="sobre" className="px-6 py-28 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <Badge>Sobre</Badge>
-        </Reveal>
-
-        {/* Layout com Foto + Texto */}
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[320px_1fr] lg:items-start lg:gap-14">
-          {/* Foto com efeito neon */}
-          <Reveal delay={0.05}>
-            <div className="flex items-center justify-center lg:sticky lg:top-28 lg:justify-start">
-              <NeonImage
+    <section id="sobre" className={`${sectionClass} pt-0 lg:pt-0`}>
+      <div className={`${containerClass} border-t border-line pt-24 lg:pt-28`}>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[320px_1fr] lg:items-start lg:gap-16">
+          <Reveal>
+            <div className="mx-auto max-w-[320px] overflow-hidden rounded-lg border border-line lg:sticky lg:top-28">
+              <Image
                 src={profile.photo}
-                alt={profile.name}
+                alt={`Foto de ${profile.name}`}
                 width={320}
                 height={434}
-                glowColor="blue"
+                className="block h-auto w-full object-cover"
               />
             </div>
           </Reveal>
 
-          {/* Texto em card neon */}
-          <Reveal delay={0.1}>
-            <NeonCard className="group flex flex-col p-8 sm:p-10">
-              {/* Ícone decorativo no topo */}
-              <div className="mb-6 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-accent/30 bg-accent/5 group-hover:bg-accent/10 group-hover:border-accent/50 transition-all duration-300">
-                <div className="h-5 w-5 rounded-full bg-gradient-to-br from-accent to-accent/60" />
-              </div>
-
-              {/* Título */}
-              <h3 className="text-xl font-medium text-foreground sm:text-2xl mb-4">
-                {profile.bio.title}
-              </h3>
-
-              {/* Bio com melhor tipografia */}
-              <div className="space-y-4">
-                {profile.bio.paragraphs.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="text-balance leading-relaxed text-muted-foreground sm:text-lg"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-
-              {/* Divisor visual */}
-              <div className="my-6 h-px bg-gradient-to-r from-accent/20 via-accent/50 to-transparent" />
-
-              {/* Call-to-action */}
-              <LeadFormButton
-                location="about"
-                className="group/cta flex items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-accent/80"
-              >
-                <span>{offer.ctaLabel}</span>
-                <svg
-                  className="h-4 w-4 transition-transform duration-300 group-hover/cta:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </LeadFormButton>
-            </NeonCard>
-          </Reveal>
+          <div>
+            <Reveal>
+              <h2 className={headingClass}>{about.heading}</h2>
+            </Reveal>
+            <div className="mt-8 max-w-2xl space-y-6">
+              {about.paragraphs.map((paragraph, i) => (
+                <Reveal key={paragraph} delay={0.06 + i * 0.06}>
+                  <p className={bodyClass}>{paragraph}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

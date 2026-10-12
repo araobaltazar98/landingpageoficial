@@ -1,43 +1,27 @@
 import Reveal from "@/components/Reveal";
-import Badge from "@/components/Badge";
 import { reframe } from "@/data/content";
+import {
+  bodyClass,
+  containerClass,
+  headingClass,
+  sectionClass,
+} from "@/components/styles";
 
 export default function Reframe() {
   return (
-    <section id="virada" className="px-6 py-28 lg:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section id="virada" className={`${sectionClass} pt-0 lg:pt-0`}>
+      <div className={`${containerClass} border-t border-line pt-24 lg:pt-28`}>
         <Reveal>
-          <Badge>{reframe.kicker}</Badge>
-          <h2 className="mt-4 max-w-2xl text-balance text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
-            {reframe.heading}
-          </h2>
+          <h2 className={headingClass}>{reframe.heading}</h2>
         </Reveal>
 
-        <Reveal delay={0.06}>
-          <p className="mt-6 max-w-2xl text-balance leading-relaxed text-muted-foreground">
-            {reframe.intro}
-          </p>
-        </Reveal>
-
-        <ul className="mt-6 max-w-2xl space-y-4">
-          {reframe.bullets.map((bullet, i) => (
-            <Reveal key={bullet} delay={0.06 + i * 0.06}>
-              <li className="flex items-start gap-3 text-balance text-muted-foreground sm:text-lg">
-                <span className="relative mt-2.5 flex h-1.5 w-1.5 shrink-0">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/60" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                </span>
-                {bullet}
-              </li>
+        <div className="mt-8 max-w-2xl space-y-6">
+          {reframe.paragraphs.map((paragraph, i) => (
+            <Reveal key={paragraph} delay={0.06 + i * 0.06}>
+              <p className={bodyClass}>{paragraph}</p>
             </Reveal>
           ))}
-        </ul>
-
-        <Reveal delay={0.42}>
-          <p className="mt-8 max-w-2xl text-balance text-xl font-medium tracking-tight text-foreground">
-            {reframe.closing}
-          </p>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

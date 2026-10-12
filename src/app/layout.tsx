@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Arão Baltazar — Consultoria Estratégica para Cirurgia Plástica",
+  title: "Arão Baltazar — Estrategista Digital em Saúde",
   description:
-    "Consultoria estratégica para médicos e donos de clínica de cirurgia plástica de alto ticket. Tráfego pago, tracking e CAC por procedimento — dentro das regras do CFM.",
+    "Eu construo o sistema que liga a mídia paga da sua clínica ao atendimento, ao CRM e ao faturamento. Para você parar de medir cliques e começar a medir pacientes.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
     >
       <head>
         {/* Google Tag Manager */}

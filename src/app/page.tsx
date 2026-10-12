@@ -1,34 +1,32 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ClientLogos from "@/components/ClientLogos";
 import Problem from "@/components/Problem";
 import Reframe from "@/components/Reframe";
 import Method from "@/components/Method";
-import Offer from "@/components/Offer";
-import Transformation from "@/components/Transformation";
+import Results from "@/components/Results";
 import Audience from "@/components/Audience";
-import Projects from "@/components/Projects";
+import Process from "@/components/Process";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { LeadFormProvider } from "@/components/LeadFormContext";
 import LeadFormModal from "@/components/LeadFormModal";
-import NetworkField from "@/components/NetworkField";
 
 export default function Home() {
   return (
     <LeadFormProvider>
-      <NetworkField />
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <ClientLogos />
         <Problem />
         <Reframe />
         <Method />
-        <Offer />
-        <Transformation />
+        <Results />
         <Audience />
-        <Projects />
+        <Process />
         <About />
         <FAQ />
         <Contact />

@@ -1,250 +1,251 @@
 export const profile = {
   name: "Arão Baltazar",
-  bio: {
-    title:
-      "Não analiso campanhas isoladamente. Analiso a operação que deveria transformar mídia em pacientes.",
-    paragraphs: [
-      "Sou Arão Baltazar, especialista em mídia paga, mensuração, CRM e automação aplicada à aquisição de pacientes.",
-      "Meu trabalho conecta o que acontece na campanha ao que acontece no atendimento, no agendamento, no comparecimento, na negociação e na receita da clínica.",
-      "Uma campanha pode atingir a meta de leads e, ainda assim, a operação perder dinheiro depois do clique. Por isso, ajudo clínicas de cirurgia plástica a identificar gargalos, organizar dados confiáveis e priorizar as mudanças com maior potencial de impacto.",
-    ],
-  },
   photo: "/images/profile.jpg", // Atualize o caminho conforme sua foto
 };
 
 export const hero = {
-  eyebrow:
-    "Consultoria de Growth e Mensuração para Clínicas de Cirurgia Plástica",
+  eyebrow: "Estrategista Digital · Análise de Dados e Negócios em Saúde",
   title:
-    "Sua clínica não precisa de mais leads antes de descobrir onde está perdendo os que já gera.",
+    "Seu anúncio gera leads. Mas você sabe quanto custa cada paciente que chega à cadeira?",
   subtitle:
-    "Conecte tráfego pago, atendimento, CRM e dados para enxergar o caminho completo entre o primeiro clique e a cirurgia — e tomar decisões com base no que realmente gera pacientes e receita.",
-  ctaLabel: "Solicitar diagnóstico estratégico",
-  ctaMicrocopy:
-    "Responda algumas perguntas sobre sua operação. Se houver aderência, entrarei em contato pelo WhatsApp para explicar os próximos passos.",
-  credibilityBar: [
-    "Mais de 7 anos de experiência com tráfego pago",
-    "Atuação em operações de mídia paga de alto investimento no setor da saúde",
-    "Participação em operações de cirurgia plástica de alto ticket, do clique à receita",
+    "Eu construo o sistema que liga a sua mídia paga ao atendimento, ao CRM e ao faturamento da clínica. Para você parar de medir cliques e começar a medir pacientes.",
+  ctaLabel: "Quero um diagnóstico do meu funil",
+  // Os trechos em `strong` aparecem em destaque (Tinta, peso maior).
+  supportLine: [
+    { strong: "Mais de R$ 1 milhão por mês", text: " em mídia paga sob minha gestão" },
+    { strong: "mais de 7 anos", text: " no setor de saúde." },
   ],
 };
 
-export const stats = [{ value: "7+", label: "Anos de experiência com tráfego pago" }];
-
-export const experienceHighlights = [
-  "Atuação em operações de mídia paga de alto investimento no setor da saúde",
-  "Participação em operações de cirurgia plástica de alto ticket, conectando aquisição, atendimento e receita",
-];
+export const clientLogos = {
+  heading: "Marcas de saúde que confiam no meu trabalho",
+  logos: [
+    {
+      name: "Instituto Pedro Ruiz (IPR Blefaroplastia)",
+      src: "/logos/logo-ipr-mono.svg",
+      aspectRatio: 770 / 421,
+    },
+    {
+      name: "Instituto Brasileiro de Plástica",
+      src: "/logos/logo-ibp-mono.svg",
+      aspectRatio: 1330 / 906,
+    },
+  ],
+};
 
 export const problem = {
-  kicker: "O problema",
-  heading: "O problema não termina quando o lead entra no CRM.",
+  heading: "O problema raramente é o anúncio.",
   intro:
-    "Sua clínica pode gerar contatos todos os dias e ainda não saber responder perguntas básicas para crescer com segurança:",
+    "A maioria das clínicas que investem em mídia vive a mesma cena: a agência mostra um relatório com custo por lead baixo, a recepção diz que os leads são ruins e o dono não consegue responder uma pergunta simples: quanto dinheiro voltou?",
+  bridge:
+    "Isso acontece porque cada parte do caminho é cuidada por alguém diferente, e ninguém olha o caminho inteiro:",
   bullets: [
-    "Quantos leads receberam atendimento de verdade?",
-    "Quantos agendaram e quantos compareceram?",
-    "Quantos receberam proposta e quantos fecharam?",
-    "Qual é o custo real por cirurgia, e não apenas por lead?",
-    "Em qual etapa as melhores oportunidades estão sendo perdidas?",
+    "O anúncio é medido pela plataforma, que não sabe quem virou paciente.",
+    "O lead cai no WhatsApp e some entre uma mensagem e outra.",
+    "O CRM, quando existe, não conversa com a mídia.",
+    "A decisão de investimento é tomada por percepção, não por dado.",
   ],
-  resultLine:
-    "Quando essas respostas não existem, o diagnóstico costuma estar errado.",
-  bridgeLine:
-    "Um problema de tempo de resposta parece falta de mídia. A ausência de follow-up parece baixa qualidade dos leads. E uma campanha que gera oportunidades pode ser descartada porque ninguém mede o que acontece depois do agendamento.",
+  closing: "O resultado é investir mais para compensar um funil que vaza.",
 };
 
 export const reframe = {
-  kicker: "A virada de raciocínio",
-  heading:
-    "Mais leads não corrigem um processo que ainda perde pacientes no caminho.",
-  intro: "Antes de aumentar o orçamento, sua clínica precisa identificar:",
-  bullets: [
-    "quais canais realmente geram pacientes",
-    "quais procedimentos combinam melhor custo de aquisição, margem e capacidade",
-    "onde o funil perde oportunidades",
-    "como o atendimento influencia o resultado da mídia",
-    "quais dados estão ausentes ou não são confiáveis",
-    "qual gargalo deve ser corrigido primeiro",
+  heading: "Não é só tráfego. É estratégia orientada por dados.",
+  paragraphs: [
+    "Gestor de tráfego entrega leads. Agência entrega conteúdo. Software entrega uma ferramenta. Eu desenho e opero o sistema que conecta tudo isso, do clique à cadeira.",
+    "Na prática, cada real investido passa a ser rastreado até o paciente que ele trouxe. E cada decisão de mídia passa a ser tomada com base em consultas agendadas, comparecimentos e faturamento, não em curtidas.",
   ],
-  closing:
-    "É essa visão que transforma marketing de um centro de custo difícil de explicar em uma operação que pode ser analisada, priorizada e melhorada.",
 };
 
-export const method = {
-  kicker: "O método",
-  heading: "Uma visão única, da aquisição à receita.",
-  steps: [
+export const layers = {
+  heading: "Cinco camadas de um sistema de aquisição de pacientes",
+  items: [
     {
       title: "Aquisição",
       description:
-        "Análise das campanhas, públicos, ofertas, páginas e mensagens que geram as oportunidades.",
+        "Campanhas em Google, Meta, Pinterest, LinkedIn, Taboola e outras plataformas, estruturadas por procedimento, ticket e intenção de busca, dentro das normas de publicidade do seu conselho.",
+    },
+    {
+      title: "Conversão",
+      description:
+        "Páginas, formulários e fluxos de WhatsApp desenhados para transformar interesse em agendamento.",
     },
     {
       title: "Atendimento e CRM",
       description:
-        "Avaliação do tempo de resposta, qualificação, follow-up, etapas do funil e motivos de perda.",
+        "Cada lead registrado, com origem, etapa e responsável. Sem planilha paralela, sem lead esquecido.",
     },
     {
       title: "Mensuração",
       description:
-        "Definição dos eventos e indicadores necessários para acompanhar o lead até o procedimento fechado.",
+        "Rastreamento do anúncio até o agendamento, o comparecimento e a venda, devolvendo esses dados às plataformas para que a mídia otimize para pacientes, não para cliques.",
     },
     {
-      title: "Decisão estratégica",
+      title: "Automação e IA",
       description:
-        "Transformação dos dados em prioridades claras: o que corrigir, manter, interromper ou escalar.",
+        "Integrações e agentes que respondem, qualificam, lembram e reativam pacientes, liberando sua equipe para o que só ela faz.",
     },
   ],
 };
 
-export const offer = {
-  kicker: "A oferta",
-  heading: "O que você recebe no diagnóstico estratégico",
-  deliverables: [
-    "Diagnóstico da estratégia de aquisição",
-    "Revisão das campanhas e da mensuração atual",
-    "Mapa do funil entre o lead e a cirurgia",
-    "Avaliação das etapas e dos dados registrados no CRM",
-    "Identificação dos principais pontos de perda",
-    "Definição dos indicadores necessários para gestão",
-    "Revisão da comunicação considerando as regras vigentes de publicidade médica",
-    "Plano de ação priorizado para os próximos 90 dias",
-    "Reunião estratégica para apresentação do diagnóstico",
-    "Recomendação de implementação ou acompanhamento, quando houver aderência",
+export const results = {
+  heading: "Números de quem já trabalha assim",
+  cases: [
+    {
+      client: "Instituto Pedro Ruiz (IPR Blefaroplastia)",
+      stats: [
+        {
+          value: "+R$ 1 milhão",
+          label: "por mês em investimento em mídia sob minha gestão",
+        },
+        { value: "2 anos", label: "como Estrategista de Mídia Paga" },
+      ],
+    },
+    {
+      client: "Instituto Brasileiro de Plástica",
+      stats: [
+        { value: "+R$ 100 mil", label: "em mídia gerenciada" },
+        { value: "+R$ 2 milhões", label: "em faturamento gerado" },
+        { value: "7 meses", label: "de parceria" },
+      ],
+    },
   ],
-  ctaLabel: "Quero identificar os gargalos da minha clínica",
-  ctaMicrocopy:
-    "A solicitação passa por uma análise inicial de aderência e não representa contratação automática.",
-};
-
-export const transformation = {
-  kicker: "A transformação",
-  heading: "Você deixa de avaliar o marketing apenas pelo custo por lead.",
-  intro:
-    "A gestão passa a enxergar indicadores que se aproximam do resultado real do negócio:",
-  indicators: [
-    "Custo por lead",
-    "Custo por agendamento",
-    "Taxa de atendimento",
-    "Taxa de agendamento",
-    "Taxa de comparecimento",
-    "Conversão em cirurgia",
-    "CAC por procedimento",
-    "Receita por origem",
-    "Motivos de perda",
-    "Retorno por canal",
-  ],
-  closing:
-    "O objetivo não é criar mais um dashboard. É fazer mídia, atendimento e gestão tomarem decisões a partir da mesma realidade.",
 };
 
 export const audience = {
-  kicker: "Para quem é",
-  heading: "Esta consultoria faz sentido para sua clínica?",
+  heading: "Para quem este trabalho faz sentido",
   fitFor: [
-    "Sua clínica atua com cirurgia plástica",
-    "Já existe investimento consistente em aquisição",
-    "Há uma equipe responsável por atender e acompanhar os contatos",
-    "Você quer medir o resultado até a cirurgia, não apenas até o lead",
-    "Existe disposição para organizar CRM, processo e dados",
-    "Você procura direção estratégica, e não somente execução de mídia",
+    "Tem uma clínica ou negócio de saúde privado e já investe em anúncios.",
+    "Vende procedimentos ou tratamentos de valor relevante, em que cada paciente faz diferença.",
+    "Tem equipe que atende leads, mas não sabe dizer quantos viram pacientes.",
+    "Quer decidir investimento com dado, não com sensação.",
   ],
   notFor: [
-    "Você procura resultados imediatos sem processo",
-    "Sua equipe não tem capacidade de atender as oportunidades geradas",
-    "O único objetivo é receber mais leads",
-    "Não há disposição para registrar e analisar dados",
-    "O foco principal do projeto é blefaroplastia (restrição profissional atual)",
+    "Busca só alguém para postar nas redes sociais.",
+    "Nunca anunciou e ainda não tem uma oferta definida.",
+    "Espera promessa de faturamento garantido. Na saúde, ninguém sério promete isso.",
+  ],
+  specialties:
+    "odontologia, oftalmologia, dermatologia, estética médica, cirurgia plástica e clínicas multiespecialidade.",
+};
+
+export const process = {
+  heading: "Como começamos",
+  steps: [
+    {
+      title: "Diagnóstico do funil",
+      description:
+        "Analiso suas campanhas, seu atendimento e seus dados atuais para encontrar onde os pacientes se perdem.",
+    },
+    {
+      title: "Desenho do sistema",
+      description:
+        "Você recebe um plano com as camadas prioritárias, o que muda primeiro e quais indicadores vamos acompanhar.",
+    },
+    {
+      title: "Implementação",
+      description:
+        "Estruturo mídia, rastreamento, CRM e automações, conforme o plano.",
+    },
+    {
+      title: "Operação e otimização",
+      description:
+        "Acompanhamento contínuo, com relatórios em linguagem de negócio: custo por paciente, taxa de comparecimento e retorno sobre o investimento.",
+    },
   ],
 };
 
-export const proof = {
-  kicker: "Prova e experiência",
-  heading: "Experiência aplicada em operações de alto investimento",
+export const about = {
+  heading: "Quem está por trás",
+  paragraphs: [
+    "Sou Arão Baltazar. Há mais de 7 anos trabalho com mídia paga com foco em clínicas e empresas de saúde. Há 2 anos sou Estrategista de Mídia Paga do Instituto Pedro Ruiz (IPR Blefaroplastia), onde gerencio mais de R$ 1 milhão por mês em investimento.",
+    "Nesse período, percebi que o gargalo das clínicas raramente estava no anúncio. Estava no que acontecia depois dele: no lead que ninguém respondeu, no CRM que não existia, no relatório que media a coisa errada.",
+    "Por isso, ampliei meu trabalho do tráfego para a estratégia do sistema inteiro: mídia, atendimento, CRM, dados, integrações e IA. Opero campanhas em Google, Meta, Pinterest, LinkedIn, Taboola e outras plataformas, e traduzo os números de cada uma em decisão de negócio.",
+  ],
 };
 
-export const projects = [
-  {
-    title: "Metodologia Aplicada em Cirurgia Plástica",
-    description:
-      "Estruturei operação completa de aquisição para clínica de cirurgia plástica de alto ticket: tráfego pago, tracking, CRM e CAC por procedimento — do primeiro clique até a cirurgia realizada.",
-    link: null,
-  },
-  {
-    title: "Engenharia de Tracking Médico",
-    description:
-      "Mensuração ponta a ponta sem perda de dado, respeitando as restrições de publicidade médica: Meta Ads, Google Tag Manager, GA4, Conversion API e CRM integrados.",
-    link: null,
-  },
-  {
-    title: "Dashboard de Indicadores do Funil",
-    description:
-      "Visibilidade em tempo real de CAC por lead, por consulta e por procedimento fechado — decisão baseada em dado, não em ROAS superficial.",
-    link: null,
-  },
-  {
-    title: "Revisão de Comunicação e Publicidade Médica",
-    description:
-      "Identificação de riscos na comunicação de campanhas ativas — antes/depois, menção a preço, linguagem de urgência — considerando as regras vigentes de publicidade médica, com validação profissional quando necessária.",
-    link: null,
-  },
-];
-
 export const faq = {
-  kicker: "Perguntas frequentes",
   heading: "Perguntas frequentes",
   items: [
     {
-      question: "Você é uma agência de tráfego pago?",
+      question: "Você trabalha só com cirurgia plástica?",
       answer:
-        "Não. O primeiro trabalho é uma consultoria estratégica para diagnosticar aquisição, atendimento e mensuração. Uma eventual implementação ou operação recorrente é avaliada separadamente.",
+        "Não. Trabalho com clínicas e negócios de saúde de diferentes especialidades. O que une meus clientes não é a especialidade, é o modelo: procedimentos de valor relevante, decisão considerada e necessidade de previsibilidade.",
     },
     {
-      question: "Minha clínica precisa já investir em mídia?",
+      question: "Você segue as regras de publicidade dos conselhos?",
       answer:
-        "A consultoria tende a gerar mais valor para clínicas que já investem ou estão preparadas para investir de forma consistente, porque há operação e dados suficientes para análise.",
+        "Sim. Campanhas e páginas são construídas respeitando as normas de publicidade do conselho de cada especialidade.",
     },
     {
-      question: "Você garante aumento no número de cirurgias?",
+      question: "Preciso trocar meu CRM?",
       answer:
-        "Não. O resultado depende de fatores como oferta, reputação do médico, atendimento, capacidade operacional, execução e contexto de mercado. O trabalho entrega diagnóstico, direção e estrutura de decisão, não uma promessa de resultado garantido.",
+        "Não necessariamente. Primeiro avalio o que você já usa. Se ele puder ser integrado à mídia, aproveitamos.",
     },
     {
-      question:
-        "A revisão da comunicação representa aprovação jurídica ou do CFM?",
+      question: "Você garante resultado?",
       answer:
-        "Não. A análise considera as regras vigentes de publicidade médica, mas não substitui avaliação jurídica, do diretor técnico ou de outro profissional responsável quando ela for necessária.",
+        "Não garanto faturamento, e desconfie de quem garante. Garanto clareza: você vai saber de onde vêm seus pacientes e quanto cada um custa.",
     },
     {
-      question: "Você atende projetos de blefaroplastia?",
+      question: "Quanto tempo leva para ver resultado?",
       answer:
-        "Não. Por uma restrição profissional atual, projetos cujo foco principal seja blefaroplastia não são aceitos.",
+        "Os primeiros dados confiáveis aparecem em cerca de 30 dias. A otimização consistente, com base em pacientes e não em cliques, ganha força a partir de 90 dias.",
     },
     {
-      question: "O que acontece depois que eu solicito o diagnóstico?",
-      answer:
-        "As informações da clínica são analisadas para verificar aderência. Se houver compatibilidade, o contato é feito pelo WhatsApp para entender o cenário e explicar os próximos passos.",
+      question: "Qual o investimento?",
+      answer: "Depende do escopo definido no diagnóstico.",
     },
   ],
 };
 
 export const finalCta = {
-  kicker: "Vamos conversar",
-  heading:
-    "Antes de investir mais, descubra onde sua clínica está perdendo oportunidades.",
-  text: "Solicite uma análise inicial da sua operação de aquisição, atendimento e mensuração. Se houver aderência, entrarei em contato para entender o cenário e apresentar o próximo passo.",
-  ctaLabel: "Solicitar análise de aderência",
-  privacyMicrocopy:
-    "Seus dados serão usados apenas para analisar a solicitação e entrar em contato sobre esta consultoria.",
+  heading: "Descubra onde sua clínica está perdendo pacientes.",
+  text: "No diagnóstico, mapeio seu funil do anúncio ao faturamento e mostro onde estão os vazamentos e o que corrigir primeiro.",
+  ctaLabel: "Agendar diagnóstico",
+  responseNote: "Respondo pessoalmente em até 24 horas úteis.",
 };
 
+export const leadForm = {
+  title: "Agendar diagnóstico",
+  intro: finalCta.text,
+  submitLabel: finalCta.ctaLabel,
+  responseNote: finalCta.responseNote,
+  consent:
+    "Autorizo o uso dos meus dados para contato sobre o diagnóstico.",
+  confirmation: {
+    qualified: {
+      title: "Recebi seus dados.",
+      text: "Em até 24 horas úteis entro em contato pelo WhatsApp para agendarmos o diagnóstico.",
+    },
+    unqualified: {
+      title: "Obrigado pelo interesse.",
+      text: "Pelo investimento informado, o diagnóstico ainda não é o melhor próximo passo. Vou te enviar materiais que ajudam a estruturar a captação da sua clínica.",
+    },
+    whatsappHint:
+      "Abri o WhatsApp com seus dados preenchidos. Se ele não abriu, use o botão abaixo para enviar.",
+  },
+};
+
+export const specialties = [
+  "Odontologia",
+  "Oftalmologia",
+  "Dermatologia",
+  "Estética médica",
+  "Cirurgia plástica",
+  "Clínica multiespecialidade",
+  "Outra especialidade",
+];
+
+/**
+ * `qualified: false` leva à mensagem de confirmação alternativa. O valor de
+ * corte (R$ 2 mil) fica só nesta lógica e não aparece em nenhum texto da página.
+ */
 export const investmentRanges = [
-  "Ainda não investimos",
-  "Até R$ 5 mil por mês",
-  "De R$ 5 mil a R$ 15 mil por mês",
-  "De R$ 15 mil a R$ 50 mil por mês",
-  "Mais de R$ 50 mil por mês",
+  { label: "Até R$ 2 mil", qualified: false },
+  { label: "De R$ 2 mil a R$ 5 mil", qualified: true },
+  { label: "De R$ 5 mil a R$ 15 mil", qualified: true },
+  { label: "De R$ 15 mil a R$ 50 mil", qualified: true },
+  { label: "Acima de R$ 50 mil", qualified: true },
 ];
 
 export const contact = {

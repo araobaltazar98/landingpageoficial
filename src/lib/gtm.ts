@@ -47,4 +47,4 @@ export function restoreHomePath(): void {
 }
 
 /** Localização do CTA que originou a interação com o formulário. */
-export type FormLocation = "navbar" | "hero" | "about" | "offer" | "contact";
+export type FormLocation = "navbar" | "hero" | "contact";
