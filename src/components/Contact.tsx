@@ -16,6 +16,9 @@ export default function Contact() {
             <p className="mx-auto mt-5 max-w-xl text-balance leading-relaxed text-graphite sm:text-lg">
               {finalCta.text}
             </p>
+            <p className="mx-auto mt-3 max-w-xl text-sm font-medium text-ink">
+              {finalCta.pricingNote}
+            </p>
 
             <div className="mt-10 flex justify-center">
               <LeadFormButton

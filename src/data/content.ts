@@ -193,7 +193,8 @@ export const faq = {
     },
     {
       question: "Qual o investimento?",
-      answer: "Depende do escopo definido no diagnóstico.",
+      answer:
+        "O diagnóstico é pago. O investimento do projeto depende do escopo definido nele.",
     },
   ],
 };
@@ -202,12 +203,13 @@ export const finalCta = {
   heading: "Descubra onde sua clínica está perdendo pacientes.",
   text: "No diagnóstico, mapeio seu funil do anúncio ao faturamento e mostro onde estão os vazamentos e o que corrigir primeiro.",
   ctaLabel: "Agendar diagnóstico",
+  pricingNote: "O diagnóstico é um serviço pago.",
   responseNote: "Respondo pessoalmente em até 24 horas úteis.",
 };
 
 export const leadForm = {
   title: "Agendar diagnóstico",
-  intro: finalCta.text,
+  intro: `${finalCta.text} ${finalCta.pricingNote}`,
   submitLabel: finalCta.ctaLabel,
   responseNote: finalCta.responseNote,
   consent:
