@@ -198,7 +198,7 @@ export const faq = {
 
 export const finalCta = {
   heading: "Descubra onde sua clínica está perdendo pacientes.",
-  text: "No diagnóstico, mapeio seu funil do anúncio ao faturamento e mostro onde estão os vazamentos e o que corrigir primeiro.",
+  text: "Você sai do diagnóstico sabendo onde seu funil vaza, do anúncio ao faturamento, e com um plano claro do que corrigir primeiro. Antes de colocar mais dinheiro em mídia.",
   ctaLabel: "Agendar diagnóstico",
   pricingNote: "O diagnóstico é um serviço pago.",
   responseNote: "Respondo pessoalmente em até 24 horas úteis.",
