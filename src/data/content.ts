@@ -15,7 +15,7 @@ export const hero = {
 };
 
 export const clientLogos = {
-  heading: "Marcas de saúde que confiam no meu trabalho",
+  heading: "Empresas que confiam no meu trabalho",
   logos: [
     {
       name: "Instituto Pedro Ruiz (IPR Blefaroplastia)",
@@ -26,6 +26,13 @@ export const clientLogos = {
       name: "Instituto Brasileiro de Plástica",
       src: "/logos/logo-ibp-mono.svg",
       aspectRatio: 1330 / 906,
+    },
+    {
+      name: "V4 Company",
+      src: "/logos/logo-v4-mono.svg",
+      aspectRatio: 612 / 140,
+      // Logo horizontal e compacto: altura menor para equilibrar o peso visual.
+      height: 40,
     },
   ],
 };

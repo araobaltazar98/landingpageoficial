@@ -19,28 +19,31 @@ export default function ClientLogos() {
             {clientLogos.heading}
           </p>
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
-            {clientLogos.logos.map((logo) => (
-              <li key={logo.name}>
-                <span
-                  role="img"
-                  aria-label={logo.name}
-                  title={logo.name}
-                  className="block bg-graphite"
-                  style={{
-                    height: LOGO_HEIGHT,
-                    width: Math.round(LOGO_HEIGHT * logo.aspectRatio),
-                    maskImage: `url(${logo.src})`,
-                    WebkitMaskImage: `url(${logo.src})`,
-                    maskSize: "contain",
-                    WebkitMaskSize: "contain",
-                    maskRepeat: "no-repeat",
-                    WebkitMaskRepeat: "no-repeat",
-                    maskPosition: "center",
-                    WebkitMaskPosition: "center",
-                  }}
-                />
-              </li>
-            ))}
+            {clientLogos.logos.map((logo) => {
+              const height = ("height" in logo ? logo.height : undefined) ?? LOGO_HEIGHT;
+              return (
+                <li key={logo.name}>
+                  <span
+                    role="img"
+                    aria-label={logo.name}
+                    title={logo.name}
+                    className="block bg-graphite"
+                    style={{
+                      height,
+                      width: Math.round(height * logo.aspectRatio),
+                      maskImage: `url(${logo.src})`,
+                      WebkitMaskImage: `url(${logo.src})`,
+                      maskSize: "contain",
+                      WebkitMaskSize: "contain",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskRepeat: "no-repeat",
+                      maskPosition: "center",
+                      WebkitMaskPosition: "center",
+                    }}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </Reveal>
       </div>
