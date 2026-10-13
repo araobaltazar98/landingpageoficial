@@ -10,11 +10,6 @@ export const hero = {
   subtitle:
     "Eu construo o sistema que liga a sua mídia paga ao atendimento, ao CRM e ao faturamento da clínica. Para você parar de medir cliques e começar a medir pacientes.",
   ctaLabel: "Quero um diagnóstico do meu funil",
-  // Os trechos em `strong` aparecem em destaque (Tinta, peso maior).
-  supportLine: [
-    { strong: "Mais de R$ 1 milhão por mês", text: " em mídia paga sob minha gestão" },
-    { strong: "mais de 7 anos", text: " no setor de saúde." },
-  ],
 };
 
 export const clientLogos = {

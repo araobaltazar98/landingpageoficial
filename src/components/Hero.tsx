@@ -52,15 +52,6 @@ export default function Hero() {
               className="transition-transform group-hover:translate-x-0.5"
             />
           </LeadFormButton>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-graphite tabular-nums">
-            {hero.supportLine.map((part, i) => (
-              <span key={part.strong}>
-                {i > 0 && " · "}
-                <strong className="font-semibold text-ink">{part.strong}</strong>
-                {part.text}
-              </span>
-            ))}
-          </p>
         </motion.div>
       </div>
     </section>
