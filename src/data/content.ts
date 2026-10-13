@@ -154,9 +154,9 @@ export const process = {
 export const about = {
   heading: "Quem está por trás",
   paragraphs: [
-    "Sou Arão Baltazar. Há mais de 7 anos trabalho com mídia paga com foco em clínicas e empresas de saúde. Há 2 anos sou Estrategista de Mídia Paga do Instituto Pedro Ruiz (IPR Blefaroplastia), onde gerencio mais de R$ 1 milhão por mês em investimento.",
-    "Nesse período, percebi que o gargalo das clínicas raramente estava no anúncio. Estava no que acontecia depois dele: no lead que ninguém respondeu, no CRM que não existia, no relatório que media a coisa errada.",
-    "Por isso, ampliei meu trabalho do tráfego para a estratégia do sistema inteiro: mídia, atendimento, CRM, dados, integrações e IA. Opero campanhas em Google, Meta, Pinterest, LinkedIn, Taboola e outras plataformas, e traduzo os números de cada uma em decisão de negócio.",
+    "Sou Arão Baltazar, estrategista digital focado em análise de dados e negócios em saúde. Há mais de 7 anos estruturo a aquisição de pacientes para clínicas e empresas do setor e, hoje, tenho mais de R$ 1 milhão por mês em mídia paga sob minha gestão.",
+    "Ao longo desses anos, ficou claro que o gargalo das clínicas raramente está no anúncio. Está no que acontece depois dele: no lead que ninguém respondeu, no CRM que não existe, no relatório que mede a coisa errada.",
+    "Por isso, meu trabalho vai além do tráfego. Eu estruturo o sistema inteiro: campanhas em Google, Meta, Pinterest, LinkedIn, Taboola e outras plataformas; páginas e fluxos de WhatsApp que convertem interesse em agendamento; CRM com cada lead rastreado; mensuração do anúncio até o faturamento; e automações com IA que respondem, qualificam e reativam pacientes. No fim, cada número vira uma decisão de negócio.",
   ],
 };
 
