@@ -101,7 +101,7 @@ export const results = {
           value: "+R$ 1 milhão",
           label: "por mês em investimento em mídia sob minha gestão",
         },
-        { value: "2 anos", label: "como Estrategista de Mídia Paga" },
+        { value: "2 anos", label: "de parceria" },
       ],
     },
     {
