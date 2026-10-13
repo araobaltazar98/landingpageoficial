@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { faq } from "@/data/content";
 import { containerClass, headingClass, sectionClass } from "@/components/styles";
@@ -10,20 +11,25 @@ export default function FAQ() {
           <h2 className={headingClass}>{faq.heading}</h2>
         </Reveal>
 
-        <dl className="mt-12 max-w-3xl divide-y divide-line border-y border-line">
+        <div className="mt-12 max-w-3xl divide-y divide-line border-y border-line">
           {faq.items.map((item, i) => (
             <Reveal key={item.question} delay={i * 0.05}>
-              <div className="py-6">
-                <dt className="font-serif text-lg font-medium text-ink sm:text-xl">
+              <details className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 font-serif text-lg font-medium text-ink transition-colors hover:text-graphite sm:text-xl [&::-webkit-details-marker]:hidden">
                   {item.question}
-                </dt>
-                <dd className="mt-2 leading-relaxed text-graphite sm:text-lg">
+                  <Plus
+                    size={20}
+                    aria-hidden
+                    className="shrink-0 text-graphite transition-transform duration-200 group-open:rotate-45"
+                  />
+                </summary>
+                <p className="-mt-2 pb-6 pr-10 leading-relaxed text-graphite sm:text-lg">
                   {item.answer}
-                </dd>
-              </div>
+                </p>
+              </details>
             </Reveal>
           ))}
-        </dl>
+        </div>
       </div>
     </section>
   );
