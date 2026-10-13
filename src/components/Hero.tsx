@@ -34,9 +34,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease }}
-          className="mt-6 max-w-2xl text-balance text-lg leading-relaxed text-graphite sm:text-xl"
+          className="mt-8 max-w-2xl text-balance text-lg leading-relaxed text-ink/80 sm:text-xl lg:text-[1.375rem]"
         >
-          {hero.subtitle}
+          {hero.subtitle}{" "}
+          <span className="font-medium text-ink">{hero.subtitleEmphasis}</span>
         </motion.p>
 
         <motion.div

@@ -8,7 +8,9 @@ export const hero = {
   title:
     "Seu anúncio gera leads. Mas você sabe quanto custa cada paciente que chega à cadeira?",
   subtitle:
-    "Eu construo o sistema que liga a sua mídia paga ao atendimento, ao CRM e ao faturamento da clínica. Para você parar de medir cliques e começar a medir pacientes.",
+    "Eu construo o sistema que liga a sua mídia paga ao atendimento, ao CRM e ao faturamento da clínica.",
+  // Segunda frase do subtítulo, exibida em destaque (Tinta, peso maior).
+  subtitleEmphasis: "Para você parar de medir cliques e começar a medir pacientes.",
   ctaLabel: "Quero um diagnóstico do meu funil",
 };
 
